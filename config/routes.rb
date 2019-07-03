@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :contacts
+  end
   resources :admin, only: [:index]
   devise_for :users, controllers: {
     registrations: 'users/registrations'
