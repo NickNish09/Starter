@@ -10,6 +10,16 @@
 </head>
 
 <body>
+  <% flash.each do |key, value| %>
+    <% if key == 'alert' %>
+      <% key = 'danger' %>
+    <% elsif key == 'notice' %>
+      <% key = 'success' %>
+    <% end %>
+    <div class="alert alert-<%= key %>" style="position: absolute; top: 20px; left: 20px; z-index: 999;"> <%= value %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" style="margin-left: 5px;"> &times;</span> </button>
+    </div>
+  <% end %>
   <%= yield %>
 </body>
 </html>
