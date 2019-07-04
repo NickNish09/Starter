@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :services
+  end
+  namespace :admin do
     resources :contacts
+    resources :services
   end
   resources :admin, only: [:index]
   devise_for :users, controllers: {

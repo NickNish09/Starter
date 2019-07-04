@@ -7,9 +7,57 @@
 
   <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
-<body>
-  <%= yield %>
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <% flash.each do |key, value| %>
+      <% if key == 'alert' %>
+        <% key = 'danger' %>
+      <% elsif key == 'notice' %>
+        <% key = 'success' %>
+      <% end %>
+      <div class="alert alert-<%= key %>" style="position: absolute; top: 20px; left: 20px; z-index: 999;"> <%= value %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true" style="margin-left: 5px;"> &times;</span> </button>
+      </div>
+    <% end %>
+    <%= render 'layouts/admin/navbar' %>
+    <div id="content-wrapper" class="d-flex flex-column">
+      <%= render 'layouts/admin/header' %>
+      <div id="content">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render 'layouts/admin/footer' %>
+    </div>
+  </div>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
