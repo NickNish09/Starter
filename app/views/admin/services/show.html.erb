@@ -1,0 +1,12 @@
+<dl class="dl-horizontal">
+  <dt><strong>Name:</strong></dt>
+  <dd><%= @service.name %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @service.description %></dd>
+</dl>
+
+<%= link_to 'Edit', edit_admin_service_path(@service), class: 'btn btn-outline-warning' %>
+<%= link_to 'Back', admin_services_path, class: 'btn btn-secondary' %>

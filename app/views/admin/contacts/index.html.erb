@@ -1,27 +1,30 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contacts.each do |contact| %>
+<div class="card">
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
       <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
-        <td><%= link_to 'Show', [:admin, contact], class: "btn btn-outline-primary" %></td>
-        <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: "btn btn-outline-warning" %></td>
-        <td><%= link_to 'Destroy', [:admin, contact], class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.name %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.phone %></td>
+          <td><%= link_to 'Show', [:admin, contact], class: "btn btn-outline-primary" %></td>
+          <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: "btn btn-outline-warning" %></td>
+          <td><%= link_to 'Destroy', [:admin, contact], class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
