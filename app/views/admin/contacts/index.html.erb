@@ -1,6 +1,4 @@
-<h1>Listing contacts</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,14 +16,12 @@
         <td><%= contact.name %></td>
         <td><%= contact.email %></td>
         <td><%= contact.phone %></td>
-        <td><%= link_to 'Show', [:admin, contact] %></td>
-        <td><%= link_to 'Edit', edit_admin_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', [:admin, contact], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin, contact], class: "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Edit', edit_admin_contact_path(contact), class: "btn btn-outline-warning" %></td>
+        <td><%= link_to 'Destroy', [:admin, contact], class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Contact', new_admin_contact_path %>
