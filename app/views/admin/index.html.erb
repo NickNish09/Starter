@@ -1,15 +1,4 @@
-<div id="content">
-
-  <!-- Begin Page Content -->
-  <div class="container-fluid">
-
-    <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
-    <% if user_signed_in? %>
-      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
-    <% end %>
-
-  </div>
-  <!-- /.container-fluid -->
-
-</div>
+<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+<% if user_signed_in? %>
+  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+<% end %>

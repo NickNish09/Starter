@@ -28,7 +28,11 @@
     <%= render 'layouts/admin/navbar' %>
     <div id="content-wrapper" class="d-flex flex-column">
       <%= render 'layouts/admin/header' %>
-      <%= yield %>
+      <div id="content">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
       <%= render 'layouts/admin/footer' %>
     </div>
   </div>
