@@ -36,8 +36,9 @@
 <%= link_to 'New Service', new_admin_service_path, class: 'btn btn-outline-primary' %>
 
 <script>
-    $(document).ready( function () {
-        $('#table-services').DataTable(
+    let data_table = null;
+    document.addEventListener("turbolinks:load", function(){
+        data_table = $('#table-services').DataTable(
             {
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -53,5 +54,11 @@
                 }
             }
         );
-    } );
+    });
+
+    document.addEventListener("turbolinks:before-cache", function () {
+        if($('#table-services').length == 1){
+            data_table.destroy();
+        }
+    });
 </script>
