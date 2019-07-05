@@ -38,9 +38,9 @@
 <%= link_to 'New User', new_admin_user_path, class: 'btn btn-outline-primary' %>
 
 <script>
-    let data_table = null;
+    let user_table = null;
     document.addEventListener("turbolinks:load", function(){
-        data_table = $('#table-users').DataTable(
+        user_table = $('#table-users').DataTable(
             {
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -60,7 +60,7 @@
 
     document.addEventListener("turbolinks:before-cache", function () {
         if($('#table-users').length == 1){
-            data_table.destroy();
+            user_table.destroy();
         }
     });
 </script>

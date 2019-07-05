@@ -36,9 +36,9 @@
 <%= link_to 'New Service', new_admin_service_path, class: 'btn btn-outline-primary' %>
 
 <script>
-    let data_table = null;
+    let service_table = null;
     document.addEventListener("turbolinks:load", function(){
-        data_table = $('#table-services').DataTable(
+        service_table = $('#table-services').DataTable(
             {
                 "language": {
                     "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -58,7 +58,7 @@
 
     document.addEventListener("turbolinks:before-cache", function () {
         if($('#table-services').length == 1){
-            data_table.destroy();
+            service_table.destroy();
         }
     });
 </script>
