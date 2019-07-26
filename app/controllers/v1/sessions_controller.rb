@@ -11,6 +11,16 @@ module V1
       end
     end
 
+    def google_oauth2
+      @user = User.from_google("google", params[:user], params[:idToken])
+      if @user.persisted?
+        render json: @user
+      else
+        render json: { error: "Falha ao autenticar" }.to_json,
+               status: :unauthorized
+      end
+    end
+
     # POST /v1/login
     def create
       @user = User.find_for_database_authentication(email: params[:email])

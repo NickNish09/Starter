@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post "token_login" => "sessions#token_login"
     post "login" => "sessions#create"
     post "cadastro" => "registrations#create"
+    post "google_oauth2" => "sessions#google_oauth2"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
