@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -23,10 +24,10 @@ class User < ApplicationRecord
   end
 
   def user_avatar
-    if self.avatar_url
-      self.avatar_url
-    elsif self.avatar.attached?
+    if self.avatar.attached?
       url_for(self.avatar)
+    elsif self.avatar_url
+      self.avatar_url
     else
       ""
     end

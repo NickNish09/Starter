@@ -4,9 +4,11 @@ module V1
     def upload_avatar
       current_user.avatar.attach(io: image_io, filename: image_name)
 
-      unless current_user.save
+      if current_user.save
+        render json: { msg: "Avatar updated" }, status: 200
+      else
         puts current_user.errors.inspect
-        render json: { error: "Unable to create post" }, status: 422
+        render json: { msg: "Unable to update avatar" }, status: 422
       end
     end
 

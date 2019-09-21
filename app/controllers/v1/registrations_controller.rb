@@ -5,7 +5,7 @@ module V1
       respond_to do |format|
         format.json do
           if @user.save
-            render json: @user, root: nil
+            render json: @user.as_json, root: nil
           else
             render json: { error: "Parâmetros inválidos" }.as_json,
                    status: :unprocessable_entity
