@@ -14,7 +14,7 @@ module V1
     def google_oauth2
       @user = User.from_google("google", params[:user], params[:idToken])
       if @user.persisted?
-        render json: @user
+        render json: @user.as_json
       else
         render json: { error: "Falha ao autenticar" }.to_json,
                status: :unauthorized
