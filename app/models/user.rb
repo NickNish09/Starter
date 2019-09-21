@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -8,6 +9,29 @@ class User < ApplicationRecord
   enum provider: [:google, :facebook]
 
   after_create :update_user_token!
+  has_one_attached :avatar
+
+  def as_json(options = {})
+    {
+      id: id,
+      first_name: first_name,
+      last_name: last_name,
+      token: token,
+      email: email,
+      provider: provider,
+      avatar: user_avatar
+    }
+  end
+
+  def user_avatar
+    if self.avatar.attached?
+      url_for(self.avatar)
+    elsif self.avatar_url
+      self.avatar_url
+    else
+      ""
+    end
+  end
 
   def is_admin?
     has_role? :admin
@@ -21,7 +45,7 @@ class User < ApplicationRecord
       user.email = user_data['email']
       user.first_name = user_data['first_name']
       user.last_name = user_data['last_name']
-      user.avatar_url = user_data['photo']
+      user.avatar_url = user_data['avatar_url']
       user.password = SecureRandom.urlsafe_base64
     end
   end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     post "login" => "sessions#create"
     post "cadastro" => "registrations#create"
     post "google_oauth2" => "sessions#google_oauth2"
+    post "upload_avatar" => "users#upload_avatar"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

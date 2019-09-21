@@ -4,7 +4,7 @@ module V1
     def token_login
       @user = User.find_by(token: params[:token])
       if @user.persisted?
-        render json: @user
+        render json: @user.as_json
       else
         render json: { error: "Falha ao autenticar" }.to_json,
                status: :unauthorized
@@ -14,7 +14,7 @@ module V1
     def google_oauth2
       @user = User.from_google("google", params[:user], params[:idToken])
       if @user.persisted?
-        render json: @user
+        render json: @user.as_json
       else
         render json: { error: "Falha ao autenticar" }.to_json,
                status: :unauthorized
@@ -27,7 +27,7 @@ module V1
       return invalid_login_attempt unless @user
 
       if @user.valid_password?(params[:password])
-        render json: @user, root: nil
+        render json: @user.as_json, root: nil
       else
         invalid_login_attempt
       end
