@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'gemaina'
   gem 'rspec-rails', '~> 3.8'
+  gem 'aquarium'
 end
 
 group :development do
