@@ -42,6 +42,7 @@ group :development, :test do
   gem 'gemaina'
   gem 'rspec-rails', '~> 3.8'
   gem 'aquarium'
+  gem 'aspector'
 end
 
 group :development do

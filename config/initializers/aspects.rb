@@ -1,3 +1,16 @@
+# require 'aspector'
+#
+# watcher = Aspector do
+#   around(/.*/, except: Object.methods) do |proxy, *args, &block|
+#     puts "before #{proxy.name} on #{proxy.receiver}"
+#     proxy.call(*args, &block)
+#     puts "after #{proxy.name} on #{proxy.receiver}"
+#   end
+# end
+#
+# watcher.apply(Contact)
+# watcher.apply(Contact, class_methods: true)
+
 require 'aquarium'
 # require 'aquarium/dsl/object_dsl'
 include Aquarium::Aspects
