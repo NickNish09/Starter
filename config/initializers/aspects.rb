@@ -11,8 +11,8 @@
 # watcher.apply(Contact)
 # watcher.apply(Contact, class_methods: true)
 
-require 'aquarium'
-# require 'aquarium/dsl/object_dsl'
+# require 'aquarium'
+require 'aquarium/dsl/object_dsl'
 include Aquarium::Aspects
 
 puts "Aquarium aspect tracing initialized"
