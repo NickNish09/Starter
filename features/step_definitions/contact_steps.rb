@@ -27,6 +27,18 @@ Entao("ser redirecionado para página de contatos") do
   expect(page.current_path).to eq admin_contacts_path
 end
 
+Dado("que eu ja tenha criado um contato") do
+  steps %Q{
+    Dado que eu esteja na página de contato
+    Quando eu preencher o formulário com:
+    |contact[name]|CJR|
+    |contact[email]|contato@cjr.org.br|
+    |contact[phone]|(61)99999-9999    |
+    E clicar no botão "Create Contact"
+  }
+end
+
+
 #show steps
 
 #edit steps

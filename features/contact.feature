@@ -22,6 +22,16 @@ Funcionalidade: contact
     E clicar no botão "Create Contact"
     Entao eu devo ver a mensagem de "Contact was successfully created."
     E ser redirecionado para página de contatos
+
+  Cenario: Criar um contato extra deve falhar
+    Dado que eu ja tenha criado um contato
+    E que eu esteja na página de contato
+    Quando eu preencher o formulário com:
+      |contact[name]|CJR2|
+      |contact[email]|contato2@cjr.org.br|
+      |contact[phone]|(61)99999-9999    |
+    E clicar no botão "Create Contact"
+    Entao eu devo ver a mensagem de "You can only have one active contact"
   #show
   Cenário: Mostrar um contact
 
