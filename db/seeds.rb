@@ -8,3 +8,9 @@
 puts "Criando contato..."
 Contact.find_or_create_by(name: "XXX", phone: "(XX) XXXXX-XXXX", email: "x@x.com")
 puts "Contato criado."
+puts "Criando admin..."
+user = User.create(email: "admin@admin.com", first_name: "Admin", last_name: "Admin",
+              password: "123456"
+            )
+user.add_role :admin
+puts "Admin criado."
